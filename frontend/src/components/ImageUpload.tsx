@@ -47,38 +47,55 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onUploadSuccess }) => {
 
   return (
     <Paper
-      elevation={3}
+      elevation={0}
       sx={{
         p: 3,
         mb: 4,
-        backgroundColor: theme => isDragActive ? theme.palette.primary.light : theme.palette.background.paper,
-        transition: 'background-color 0.3s ease'
+        backgroundColor: 'background.paper',
+        borderRadius: 3,
+        boxShadow: '0 2px 8px rgba(214, 126, 0, 0.2)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 2
       }}
     >
       <Box
         {...getRootProps()}
         sx={{
-          border: '2px dashed',
-          borderColor: theme => isDragActive ? theme.palette.primary.main : theme.palette.grey[300],
-          borderRadius: 1,
-          p: 3,
-          textAlign: 'center',
-          cursor: 'pointer'
+          display: 'flex',
+          alignItems: 'center',
+          gap: 2,
+          cursor: 'pointer',
+          width: '100%',
+          justifyContent: 'center'
         }}
       >
         <input {...getInputProps()} />
-        <CloudUploadIcon sx={{ fontSize: 48, color: 'primary.main', mb: 2 }} />
-        <Typography variant="h6" gutterBottom>
-          {isDragActive ? 'Drop the image here' : 'Drag & drop an image here'}
-        </Typography>
+        <Button
+          variant="contained"
+          component="span"
+          disabled={uploading}
+          sx={{
+            minWidth: '200px',
+            backgroundColor: uploading ? 'primary.light' : 'primary.main',
+            '&:hover': {
+              backgroundColor: 'primary.dark'
+            }
+          }}
+        >
+          {uploading ? (
+            <CircularProgress size={24} color="inherit" />
+          ) : (
+            <>
+              <CloudUploadIcon sx={{ mr: 1 }} />
+              Select Image
+            </>
+          )}
+        </Button>
         <Typography variant="body2" color="text.secondary">
-          or click to select a file
+          Supported formats: JPG, PNG
         </Typography>
-        {uploading && (
-          <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
-            <CircularProgress size={24} />
-          </Box>
-        )}
       </Box>
     </Paper>
   );

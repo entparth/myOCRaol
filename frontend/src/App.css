@@ -40,3 +40,151 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff8f0;
+  color: #4a4a4a;
+  min-height: 100vh;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Print styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .MuiPaper-root, .MuiPaper-root * {
+    visibility: visible;
+  }
+  .MuiPaper-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .MuiAppBar-root,
+  .MuiButton-root,
+  .MuiTablePagination-root {
+    display: none !important;
+  }
+}
+
+/* Custom scrollbar for table */
+.MuiTableContainer-root {
+  max-height: calc(100vh - 400px);
+  overflow-y: auto;
+}
+
+/* Custom styles for buttons */
+.MuiButton-root {
+  text-transform: none;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.MuiButton-contained {
+  background-color: #d67e00;
+  color: white;
+}
+
+.MuiButton-contained:hover {
+  background-color: #b96a00;
+}
+
+.MuiButton-contained:disabled {
+  background-color: #f0c27a;
+}
+
+.MuiButton-outlined {
+  border-color: #d67e00;
+  color: #d67e00;
+}
+
+.MuiButton-outlined:hover {
+  border-color: #b96a00;
+  color: #b96a00;
+  background-color: rgba(214, 126, 0, 0.04);
+}
+
+/* Custom styles for table */
+.MuiTableCell-root {
+  padding: 10px 12px;
+  border: 1px solid #d67e00;
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+  background-color: #f7d9a0;
+  font-weight: 700;
+}
+
+.MuiTableRow-root:hover {
+  background-color: rgba(214, 126, 0, 0.04);
+}
+
+/* Custom styles for paper components */
+.MuiPaper-root {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(214, 126, 0, 0.2);
+}
+
+/* Toast notification */
+.Toastify__toast {
+  background-color: #d67e00;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .MuiTableCell-root {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+  
+  .MuiButton-root {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Animation for drag and drop */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.drag-active {
+  animation: pulse 1s infinite;
+}
